@@ -10,19 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_14_231933) do
+ActiveRecord::Schema.define(version: 2019_09_15_235805) do
 
   create_table "artists", force: :cascade do |t|
+    t.string "name"
+    t.string "genre"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "concerts", force: :cascade do |t|
+    t.string "city"
+    t.string "state"
+    t.string "venue"
+    t.date "date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "experiences", force: :cascade do |t|
+    t.text "comment"
+    t.integer "rating"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -33,6 +41,8 @@ ActiveRecord::Schema.define(version: 2019_09_14_231933) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
