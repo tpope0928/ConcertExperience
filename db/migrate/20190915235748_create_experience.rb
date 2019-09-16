@@ -4,6 +4,8 @@ class CreateExperience < ActiveRecord::Migration[6.0]
 
       t.text    :comment
       t.integer :rating
+      t.integer :user_id
+      t.integer :concert_id
 
       t.timestamps 
     end
