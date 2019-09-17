@@ -15,7 +15,7 @@ class ConcertsController < ApplicationController
 
     def create
         @concert = Concert.create(concert_params)
-        @book.experiences.last.user = current_user
+        @concert.experiences.last.user = current_user
         if @concert.save
             redirect_to @concert
         end
