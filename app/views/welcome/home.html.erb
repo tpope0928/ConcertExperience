@@ -1,0 +1,12 @@
+<% provide(:title, "Homepage") %>
+
+
+<div class="center jumbotron">
+<% if !logged_in? %>
+<h1>Concert Experience!</h1>
+  <p>Welcome to <a href="/" target="_blank">Concert's Experiences!</a></p>
+<%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+<% else %>
+<h1>Concert Experience</h1>
+<% end %>
+</div>
