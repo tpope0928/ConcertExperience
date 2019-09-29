@@ -6,7 +6,7 @@ class ExperiencesController < ApplicationController
  
    def index
      if params[:concert_id] && @concert = Concert.find_by_id(params[:concert_id])
-        @experiences = @concert.experience
+        @experiences = @concert.experiences
      else
        @error = "That post doesn't exist" if params[:post_id]
        @experiences = Experience.all
