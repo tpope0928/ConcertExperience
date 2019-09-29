@@ -1,1 +1,21 @@
-All concerts
+
+<h1>All Concerts</h1>
+ 
+<table>
+ 
+  <tbody>
+    <% @concert.each do |c| %>
+        <tr>
+            <td><%= c.venue %></td>
+            <td><%= c.city %></td>
+            <td><%= c.state %></td>
+            <td><%= c.date %></td>
+            <td><%= link_to concert_path(c) %></td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>
+ 
+<br>
+ 
+<%= link_to "New concert", new_concert_path %>

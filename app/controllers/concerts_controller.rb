@@ -2,10 +2,11 @@ class ConcertsController < ApplicationController
     #books = concert
 
     def index
-        if params[:user_id]
-            @concert = User.find(params[:user_id]).concerts
-            flash.now[:danger] = "You haven't added any concerts yet!" if @concerts.empty?
-        end
+        @concert = Concert.all
+       # if params[:user_id]
+       #     @concert = User.find(params[:user_id]).concerts
+        #    flash.now[:danger] = "You haven't added any concerts yet!" if @concerts.empty?
+        #end
     end
 
     def new
