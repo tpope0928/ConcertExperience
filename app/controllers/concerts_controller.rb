@@ -3,7 +3,7 @@ class ConcertsController < ApplicationController
 
     def index
         if params[:user_id]
-            @concerts = User.find(params[:user_id]).concerts
+            @concert = User.find(params[:user_id]).concerts
             flash.now[:danger] = "You haven't added any concerts yet!" if @concerts.empty?
         end
     end
