@@ -1,0 +1,24 @@
+<% if @experience.post %>
+<h1>New Experience for <%= @experience.concert.name %>!</h1>
+<% else %>
+<h1>New Comment!</h1>
+<% end %>
+
+
+
+<%= form_for([@experience.concert,@experience]) do |f|%>
+
+    <% if !@experience.concert %>
+        <%= f.label :concert %>
+        <%= f.collection_select :concert_id, Concert.all, :id, :name %>
+    <% else %>
+        <%= f.hidden_field :concert_id %>
+    <% end %>
+
+  <%= f.label :venue, :city, :state %>
+  <%= f.text_field :venue, :city, :state %>
+
+
+  <%= f.submit %>
+
+<% end %>

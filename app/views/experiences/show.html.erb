@@ -1,0 +1,7 @@
+<h2><%= @experience.comment%> - <%= @comment.user.username%></h2>
+
+<% if @experience.user == current_user %>
+  <%= link_to "Edit Experience", edit_experience_path(@experience)%>
+<% end %>
+
+<h4>Read about the concert here: <%= link_to @experience.concert.titlerating, concert_path(@experience.concert_id) %></h4>

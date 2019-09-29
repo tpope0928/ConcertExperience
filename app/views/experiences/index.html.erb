@@ -1,0 +1,11 @@
+<% if @concert %>
+  <h1>Comments for <%= @concert.name%></h1>
+<% else %>
+  <h1>All Comments</h1>
+<% end %>
+
+<ul>
+<% @experiences.each do |c|%>
+  <li><%= c.user.username%> says "<%= c.comment%>" about this post: <strong><%= link_to c.concert.name, concert_path(c.concert_id) %></strong></li>
+<% end %>
+</ul>
