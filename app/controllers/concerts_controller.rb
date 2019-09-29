@@ -10,14 +10,15 @@ class ConcertsController < ApplicationController
 
     def new
         @concert = Concert.new
-        @concert.review.build
+       # @concert.review.build
     end
 
     def create
-        @concert = Concert.create(concert_params)
-        @concert.experiences.last.user = current_user
+        @concert = Concert.new(concert_params)
         if @concert.save
-            redirect_to @concert
+            redirect_to concerts_path
+        else
+            render :new 
         end
     end
 
@@ -28,7 +29,7 @@ class ConcertsController < ApplicationController
     private
 
     def concert_params
-        params.require(:concert).permit(:city, :state, :venue, :date)
+        params.require(:concert).permit(:city, :state, :venue, :date, :artist)
     end
     
 end
