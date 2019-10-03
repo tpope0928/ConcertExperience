@@ -4,8 +4,9 @@
 <table>
  
   <tbody>
-    <% @concert.each do |c| %>
+    <% @concerts.collect do |c| %>
       <tr>
+        <td><%= c.artists %></td>
         <td><%= c.venue %></td>
         <td><%= c.city  %></td>
         <td><%= c.state %></td>

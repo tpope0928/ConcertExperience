@@ -2,7 +2,7 @@ class ConcertsController < ApplicationController
     #books = concert
 
     def index
-        @concert = Concert.all
+        @concerts = Concert.all
        # if params[:user_id]
        #     @concert = User.find(params[:user_id]).concerts
         #    flash.now[:danger] = "You haven't added any concerts yet!" if @concerts.empty?
@@ -10,13 +10,13 @@ class ConcertsController < ApplicationController
     end
 
     def new
-        @concert = Concert.new
+        @concerts = Concert.new
        # @concert.review.build
     end
 
     def create
-        @concert = Concert.new(concert_params)
-        if @concert.save
+        @concerts = Concert.new(concert_params)
+        if @concerts.save
             redirect_to concerts_path
         else
             render :new 
@@ -24,7 +24,7 @@ class ConcertsController < ApplicationController
     end
 
     def show
-        @concert = Concert.find(params[:id])
+        @concerts = Concert.find(params[:id])
     end
 
     private

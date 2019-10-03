@@ -2,16 +2,16 @@ class ArtistsController < ApplicationController
 #genres = artists
 
 def index
-    @artist = Artist.all
+    @artists = Artist.all
 end
 
 def new
-    @artist = Artist.new
+    @artists = Artist.new
 end
 
 def create
-    @artist = Artist.new(artists_params)
-    if @artist.save
+    @artists = Artist.new(artists_params)
+    if @artists.save
         redirect_to concerts_path
     else
         render :new 
@@ -19,11 +19,11 @@ def create
 end
 
 def show
-    @artist = Artist.find(params[:id])
+    @artists = Artist.find(params[:id])
 end
 
 private
 
 def artist_params
-    params.require(:artist).permit(:name, :genre)
+    params.require(:artists).permit(:name, :genre)
 end
