@@ -1,15 +1,29 @@
 class ArtistsController < ApplicationController
 #genres = artists
 
-    def index
-        if params[:user_id]
-            @artists = User.find(params[:user_id]).artists
-            flash.now[:danger] = "You haven't added any concerts with this artist!" if @artists.empty?
-        end
-    end
+def index
+    @artist = Artist.all
+end
 
-    def show
-        @artist = Artist.find(params[:id])
+def new
+    @artist = Artist.new
+end
+
+def create
+    @artist = Artist.new(artists_params)
+    if @artist.save
+        redirect_to concerts_path
+    else
+        render :new 
     end
 end
 
+def show
+    @artist = Artist.find(params[:id])
+end
+
+private
+
+def artist_params
+    params.require(:artist).permit(:name, :genre)
+end
