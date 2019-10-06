@@ -30,7 +30,7 @@ class ConcertsController < ApplicationController
     private
 
     def concert_params
-        params.require(:concert).permit(:city, :state, :venue, :date, artists_attributes: [:name])
+        params.require(:concert).permit(:city, :state, :venue, :date, :artists_id, artists_attributes: [:name])
     end
     
 end
