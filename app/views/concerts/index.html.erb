@@ -5,9 +5,7 @@
   <tbody>
     <% @concerts.map do |c|%>
       <tr>
-        <td><% c.artists.map do |a| %></td>
-          <td> <%= a.name %> </td>
-        <% end %>
+        <td><%= c.artist %></td>
         <td><%= c.venue %></td>
         <td><%= c.city %></td>
         <td><%= c.state %></td>
