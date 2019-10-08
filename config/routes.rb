@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :artists
   resources :concerts do
     resources :experiences, only: [:new, :create, :index]
+    resources :artists, only: [:new, :create, :index]
   end
   resources :experiences
   resources :users do

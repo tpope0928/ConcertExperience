@@ -1,16 +1,17 @@
-
 <h1>All Concerts</h1>
  
 <table>
  
   <tbody>
-    <% @concerts.each do |c| %>
+    <% @concerts.map do |c|%>
       <tr>
-        <td><%= c.artists %></td>
+        <td><% c.artists.map do |a| %></td>
+          <td> <%= a.name %> </td>
+        <% end %>
         <td><%= c.venue %></td>
-        <td><%= c.city  %></td>
+        <td><%= c.city %></td>
         <td><%= c.state %></td>
-        <td><%= c.date  %></td>
+        <td><%= c.date %></td>
       </tr>
     <% end %>
   </tbody>
